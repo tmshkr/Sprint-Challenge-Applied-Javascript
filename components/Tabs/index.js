@@ -15,6 +15,14 @@ function Tab(topic) {
   tab.className = "tab";
   tab.innerText = topic;
 
+  tab.onclick = function() {
+    document.getElementById("article-filter").innerText = `
+      .cards-container .card[data-topic="${topic.match(/\w*/)[0]}"] {
+        display: flex;
+      }
+      `;
+  };
+
   return tab;
 }
 
