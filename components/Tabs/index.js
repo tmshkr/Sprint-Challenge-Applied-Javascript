@@ -17,7 +17,7 @@ function Tab(topic) {
   tab.className = `tab ${topic}`;
 
   tab.onclick = function() {
-    document.getElementById("article-filter").innerText = `
+    document.getElementById("article-filter").innerHTML = `
       .cards-container .card[data-topic="${topic}"] {
         display: flex;
       }

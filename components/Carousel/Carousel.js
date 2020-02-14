@@ -37,37 +37,21 @@ function Carousel() {
   rightButton.className = "right-button";
 
   leftButton.onclick = function() {
-    if (current > 0) {
-      document.getElementById("carousel-filter").innerText = `
-      .carousel img[data-index="${--current}"] {
-        display: block;
-      }
-      `;
-    } else {
-      current = images.length - 1;
-      document.getElementById("carousel-filter").innerText = `
+    current > 0 ? current-- : (current = images.length - 1);
+    document.getElementById("carousel-filter").innerHTML = `
       .carousel img[data-index="${current}"] {
         display: block;
       }
       `;
-    }
   };
 
   rightButton.onclick = function() {
-    if (current < images.length - 1) {
-      document.getElementById("carousel-filter").innerText = `
-      .carousel img[data-index="${++current}"] {
-        display: block;
-      }
-      `;
-    } else {
-      current = 0;
-      document.getElementById("carousel-filter").innerText = `
+    current < images.length - 1 ? current++ : (current = 0);
+    document.getElementById("carousel-filter").innerHTML = `
       .carousel img[data-index="${current}"] {
         display: block;
       }
       `;
-    }
   };
 
   return carousel;
