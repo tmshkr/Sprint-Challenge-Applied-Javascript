@@ -17,3 +17,60 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+function Carousel() {
+  const ce = document.createElement.bind(document);
+  const images = ["mountains", "computer", "trees", "turntable"];
+  let current = 0;
+
+  const carousel = ce("div");
+  const leftButton = carousel.appendChild(ce("div"));
+  images.forEach((name, i) => {
+    const img = carousel.appendChild(ce("img"));
+    img.src = `./assets/carousel/${name}.jpeg`;
+    img.dataset.index = i;
+  });
+  const rightButton = carousel.appendChild(ce("div"));
+
+  carousel.className = "carousel";
+  leftButton.className = "left-button";
+  rightButton.className = "right-button";
+
+  leftButton.onclick = function() {
+    if (current > 0) {
+      document.getElementById("carousel-filter").innerText = `
+      .carousel img[data-index="${--current}"] {
+        display: block;
+      }
+      `;
+    } else {
+      current = images.length - 1;
+      document.getElementById("carousel-filter").innerText = `
+      .carousel img[data-index="${current}"] {
+        display: block;
+      }
+      `;
+    }
+  };
+
+  rightButton.onclick = function() {
+    if (current < images.length - 1) {
+      document.getElementById("carousel-filter").innerText = `
+      .carousel img[data-index="${++current}"] {
+        display: block;
+      }
+      `;
+    } else {
+      current = 0;
+      document.getElementById("carousel-filter").innerText = `
+      .carousel img[data-index="${current}"] {
+        display: block;
+      }
+      `;
+    }
+  };
+
+  return carousel;
+}
+
+document.querySelector(".carousel-container").appendChild(Carousel());
