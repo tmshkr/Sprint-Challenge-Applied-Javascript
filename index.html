@@ -9,16 +9,46 @@
     <script src="./components/Tabs/index.js" async></script>
     <script src="./components/Header/index.js" async></script>
     <script src="./components/Cards/index.js" async></script>
-    <!-- <script src="./components/Carousel/Carousel.js" async></script> -->
+    <script src="./components/Carousel/Carousel.js" async></script>
 
     <style>
       .cards-container .card {
         display: none;
       }
+
+      .top-bar {
+        z-index: 1;
+      }
+
+      .carousel img {
+        user-select: none;
+      }
+
+      .left-button {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' fill='%23999'%3E%3Cpath d='M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 24px;
+      }
+
+      .right-button {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' fill='%23999'%3E%3Cpath d='M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 24px;
+      }
     </style>
     <style id="article-filter">
       .cards-container .card[data-topic="javascript"] {
         display: flex;
+      }
+      .tab.javascript {
+        background: #4caf50 !important;
+      }
+    </style>
+    <style id="carousel-filter">
+      .carousel img[data-index="0"] {
+        display: block;
       }
     </style>
   </head>
