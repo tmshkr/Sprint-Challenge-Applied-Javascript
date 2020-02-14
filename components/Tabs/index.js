@@ -12,13 +12,17 @@ function Tab(topic) {
   const ce = document.createElement.bind(document);
 
   const tab = ce("div");
-  tab.className = "tab";
   tab.innerText = topic;
+  topic = topic.match(/\w*/)[0];
+  tab.className = `tab ${topic}`;
 
   tab.onclick = function() {
     document.getElementById("article-filter").innerText = `
-      .cards-container .card[data-topic="${topic.match(/\w*/)[0]}"] {
+      .cards-container .card[data-topic="${topic}"] {
         display: flex;
+      }
+      .tab.${topic} {
+        background: #4CAF50 !important;
       }
       `;
   };
