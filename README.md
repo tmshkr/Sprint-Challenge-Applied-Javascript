@@ -30,41 +30,59 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+DOM is an acronym that stands for Document Object Model. It's represented as an object comprised of HTML elements on a webpage, with various properties and methods that can be interacted with in order to modify attributes of the webpage, e.g., styling and content. The DOM has a tree structure, with all nodes descending from the `document` object, whose child nodes serve as parent nodes to elements nested further down the tree structure.
+
 2. What is an event?
+
+Events occur as a user interacts with a webpage, in order to notify the web browser that something has happened, so that it can respond appropriately. A browser event is represented as an object with various properties, which provide information about the event, e.g., which key was pressed, what element was clicked, and so forth. Events propagate through the DOM, so that when an event occurs on a child node, it then successively bubbles up to all of its parent nodes.
 
 3. What is an event listener?
 
+An event listener is represented as an object that can handle an event as it occurs, by executing a specified function through the `addEventListener` method on its target. For example, the following code will log the mouse event that occurs when the `button` element is clicked:
+```
+button.addEventListener("click", e => console.log(e))
+```
+There are many different types of events (e.g., "click", "wheel", "keydown", "load") that can be individually included as the first parameter, i.e., one event type per listener, which is the function specified in the second parameter and handles the event, followed by various options in order to control how the event is handled.
+
 4. Why would we convert a NodeList into an Array?
+
+A NodeList can be converted into an array in order to access array methods, such as `map`, `filter`, and `reduce`. This can be achieved by using `from` method on the `Array` prototype:
+```
+const arr = Array.from(nodeList)
+```
+The NodeList interface includes `forEach`, so that it can be used without converting to an array, and children in a NodeList can also be accessed using bracket notation, e.g., `nodeList[0]`.
 
 5. What is a component?
 
+A UI component is a reusable piece of code, which can create and append an HTML element dynamically with JavaScript, rather than writing an element into the HTML file. This is useful when developing applications with many similar elements, so that they do not need to be manually created and code is kept DRY. Components are often used to dynamically create HTML elements from data retrieved from an API.
+
 ### Git Set up
 
-* [ ] Fork the project into your GitHub user account
-* [ ] Clone the forked project into a directory on your machine
-* [ ] Create a pull request before you start working on the project requirements.  You will continuously push your updates throughout the project.
-* [ ] You are now ready to build this project with your preferred IDE
+* [x] Fork the project into your GitHub user account
+* [x] Clone the forked project into a directory on your machine
+* [x] Create a pull request before you start working on the project requirements.  You will continuously push your updates throughout the project.
+* [x] You are now ready to build this project with your preferred IDE
 
 ## Minimum Viable Product
 
 Your finished project must include all of the following requirements:
 
-* [ ] Look through the HTML code and familiarize yourself with the different sections. Some of them already exist, but some need to be filled in. DO NOT add any code to the HTML file itself.
+* [x] Look through the HTML code and familiarize yourself with the different sections. Some of them already exist, but some need to be filled in. DO NOT add any code to the HTML file itself.
 
-* [ ] Following the instructions in the `Header/index.js` file, create the Header component. 
+* [x] Following the instructions in the `Header/index.js` file, create the Header component. 
 
-* [ ] Following the instructions in the `Tabs/index.js` file, create individual Tabs components.
+* [x] Following the instructions in the `Tabs/index.js` file, create individual Tabs components.
 
-* [ ] Following the instructions in the `Cards/index.js` file, create individual Cards components.
+* [x] Following the instructions in the `Cards/index.js` file, create individual Cards components.
 
 ## Stretch Problems
 
 Your stretch challenge is to write the functionality of a `Carousel` component. This is an advanced challenge, so you are not expected to be able to complete it. If you begin and don't finish, you should still submit with what you have. This is going to be a bit different because you are going to need to create some advanced functionality for the carousel. There is no need to request data for this exercise.
 
-* [ ] Complete the carousel functionality in `Carousel.js`
+* [x] Complete the carousel functionality in `Carousel.js`
 
 * [ ] If you complete the Carousel, add functionality so that the carousel slides when the buttons are pressed instead of just appearing.
 
-* [ ] Create an 'infinite loop' carousel. In which as long as you click on an arrow, the array of images will loop over itself.
+* [x] Create an 'infinite loop' carousel. In which as long as you click on an arrow, the array of images will loop over itself.
 
-* [ ] If you have finished the above, research `data attributes`. Implement data attributes within your tabs as well as your cards. Give the tabs functionality so that when they are clicked they filter the cards to only display the cards that contain that topic.
+* [x] If you have finished the above, research `data attributes`. Implement data attributes within your tabs as well as your cards. Give the tabs functionality so that when they are clicked they filter the cards to only display the cards that contain that topic.
